@@ -1,0 +1,29 @@
+.gallery {
+  max-width: 1200px;
+  margin: auto;
+  h1{
+    text-align: center;
+    color: #223055;
+    padding: 0 1rem;
+    margin-bottom: .5rem;
+    padding: 5rem 0;
+  }
+}
+
+.galleryWrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: .5em;
+  grid-auto-flow: row dense;
+  img[src$="_w.jpg"]{
+    grid-column-end: span 2;
+  }
+  img[src$="_p.jpg"] {
+    grid-row-end: span 2;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

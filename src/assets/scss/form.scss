@@ -1,0 +1,151 @@
+
+.form {
+  background-color: #223055;
+  color: #fff;
+  padding: 1rem 1rem 2rem;
+  p{
+    font-weight: 300;
+    padding-bottom: 1rem;
+  }
+}
+
+form#contactForm {
+  max-width: 350px;
+  margin: auto;
+}
+
+.contactForm {
+  div{
+    margin-top: 1em;
+  }
+  div:first-of-type{
+    margin-top: 0;
+  }
+  input, textarea {
+    border: solid 1px #dedede;
+    border-radius: 4px;
+    color: #707070;
+    cursor: text;
+    font-size: 1rem;
+    max-width: 350px;
+    padding: .5rem;
+    width: 100%;
+  }
+  textarea {
+    min-height: 100px;
+  }
+  button {
+    background-color: #13b1e7;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem;
+    min-width: 200px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  i {
+    font-size: 200%;
+    padding-right: .5rem;
+  }
+  input[type="submit"] {
+    cursor: pointer;
+    box-shadow: 1px 1px 6px rgba(255,255,255,.6), 0px 0px 4px rgba(255,255,255,.8);
+  }
+  .checks label{
+    display: inline-block;
+  }
+  input[type="checkbox"] {
+    //margin-right: .5rem;
+    content: "\f14a";
+  }
+  .checks {
+    span:before {
+      display: inline-block;
+      box-sizing: border-box;
+      color: #13b1e7;
+      content: "\f0c8";
+      //font-family: "Font Awesome 5 Free";
+      font-size: 1.3em;
+      margin: -3px 3px 0 0;
+      vertical-align: middle;
+    }
+  }
+  input:focus, textarea:focus {
+    border: solid 1px #13b1e7;
+    box-shadow: 0 0 2px #0d92bf, 0px 0px 4px #0d92bf, 1px 1px 4px #13b1e7, 2px 2px 4px #13b1e7;
+    outline: none;
+  }
+  div.radioButtons{
+    display: grid;
+    margin: 1em 0;
+    max-width: 400px;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, 1fr);
+    p{
+      padding-bottom: 0;
+      grid-column: span 3;
+    }
+
+    label{
+      display:grid;
+      //align-items: flex-start;
+      //justify-content: center;
+        grid-template-columns: 1fr 2fr 4fr;
+      input[type="radio"] {
+        margin-left: 0;
+        padding: 0;
+      }
+      .label{
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+}
+// large screen
+@media screen and (min-width: 992px) {
+  .form{
+    display: grid;
+    grid-template-columns: auto minmax(min-content, 580px);
+    grid-template-areas:
+        ". h"
+        ". p"
+        ". f";
+    h3{
+      grid-area: h;
+    }
+    p{
+      grid-area: p;
+    }
+    form#contactForm{
+      max-width: initial;
+      grid-area: f;
+      display: grid;
+      grid-template-areas:
+      "name ph"
+      "email news"
+      "radio radio"
+      "msg msg"
+      "btn .";
+      grid-gap: 1rem;
+    }
+    .contactForm{
+      div:nth-child(1){
+        grid-area: name;
+      }
+      div:nth-child(2){
+        grid-area: ph;
+      }
+      div:nth-child(3){
+        grid-area: email;
+      }
+      div:nth-child(4){
+        grid-area: news;
+      }
+    }
+  }
+}
